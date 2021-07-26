@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WebView</string>
+    <string name="pdf_show_local_progress_title">Loading</string>
+    <string name="pdf_show_local_progress_content">Loading1</string>
+
+
+</resources>
