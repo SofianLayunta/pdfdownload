@@ -115,21 +115,20 @@ public class PDFTools {
 
     public static void openPDFThroughGoogleDrive(final Context context, final String pdfUrl) {
         Intent i = new Intent( Intent.ACTION_VIEW );
-        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         i.setDataAndType(Uri.parse(GOOGLE_DRIVE_PDF_READER_PREFIX + pdfUrl ), HTML_MIME_TYPE );
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         context.startActivity( i );
     }
 
     public static final void openPDF(Context context, Uri localUri ) {
         Intent i = new Intent( Intent.ACTION_VIEW );
-        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         i.setDataAndType( localUri, PDF_MIME_TYPE );
+        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         context.startActivity( i );
     }
 
     public static boolean isPDFSupported( Context context ) {
         Intent i = new Intent( Intent.ACTION_VIEW );
-        i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         final File tempFile = new File( context.getExternalFilesDir( Environment.DIRECTORY_DOWNLOADS ), "test.pdf" );
 //        i.setDataAndType( Uri.fromFile( tempFile ), PDF_MIME_TYPE );
         i.setDataAndType( FileProvider.getUriForFile(context,context.getApplicationContext().getPackageName()+".provider",tempFile), PDF_MIME_TYPE );
